@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      a {
+        text-decoration: none;
+      }
+      body,
+      html {
+        width: 100%;
+        height: 100%;
+      }
+      body {
+        background: url("https://lkalcg.com/wp/wp-content/themes/lkalcg/images/haikei_01.jpg")
+          no-repeat;
+      }
+      .main {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .item {
+        width: 175px;
+        height: 175px;
+        background: url("https://pic1.vqs.com/2018/0626/20180626100659662.png");
+        border-radius: 50%;
+        box-shadow: inset 0 0 0 16px rgba(255, 255, 255, 0.3);
+        position: relative;
+        transition: all 0.4s ease-in-out;
+        margin-right: 30px;
+      }
+      .item:nth-child(2) {
+        background: url("https://tse1-mm.cn.bing.net/th/id/OIP.H3MLV_7OFJXc-5ZDNKl3DQAAAA?pid=Api&rs=1");
+      }
+      .item:nth-child(3) {
+        background: url("https://img.game8.jp/1038132/20b1da353024562d8f985d900c074b3d_2017-06-29.png/show?1498729366");
+      }
+
+      .info {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: rgba(33, 33, 33, 0.5);
+        border-radius: 50%;
+        text-align: center;
+        opacity: 0;
+        transition: all 0.4s ease-in-out;
+      }
+      h3 {
+        margin-top: 20px;
+        height: 60px;
+        color: #fff;
+      }
+      p {
+        margin-top: 10px;
+        height: 30px;
+        color: #fff;
+        opacity: 0;
+        transition: all 0.4s ease-in-out 0.4s;
+      }
+      a {
+        display: block;
+        margin-top: 10px;
+        color: #fff;
+      }
+      .item:hover {
+        box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+      }
+      .item:hover .info {
+        opacity: 1;
+      }
+      .item:hover .info p {
+        opacity: 1;
+      }
+      .info p a:hover {
+        color: yellow;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main">
+      <div class="item">
+        <div class="info">
+          <h3>hua</h3>
+          <p>infitite<a href="#">view on more</a></p>
+        </div>
+      </div>
+      <div class="item">
+        <div class="info">
+          <h3>hua</h3>
+          <p>infitite<a href="#">view on more</a></p>
+        </div>
+      </div>
+      <div class="item">
+        <div class="info">
+          <h3>hua</h3>
+          <p>infitite<a href="#">view on more</a></p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
