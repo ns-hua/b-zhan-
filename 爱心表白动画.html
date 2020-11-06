@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0px;
+        padding: 0px;
+      }
+      body {
+        background-color: pink;
+      }
+
+      .aixin,
+      #p::before,
+      #p::after {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+      }
+      .aixin {
+        width: 50px;
+        height: 50px;
+        opacity: 0;
+        transform: rotate(45deg);
+      }
+      #p::before,
+      #p::after {
+        content: "";
+        border-radius: 50%;
+      }
+      #p::before {
+        bottom: 50%;
+      }
+      #p::after {
+        right: 50%;
+      }
+      @keyframes moveX {
+        0% {
+          opacity: 1;
+          transform: translateX(0px) rotate(45deg);
+        }
+        50% {
+          opacity: 0;
+          transform: translateX(100px) rotate(45deg);
+        }
+        100% {
+          opacity: 1;
+          transform: translateX(0px) rotate(45deg);
+        }
+      }
+      @keyframes moveY {
+        0% {
+          transform: translateY(0px);
+        }
+        100% {
+          transform: translateY(-400px);
+        }
+      }
+      .middle {
+        margin: 100px auto;
+        width: 200px;
+        height: 200px;
+        background-color: red;
+        transform: rotate(45deg);
+        box-shadow: 0 0 20px rgba(255, 0, 0, 0.7);
+        animation: love 1s infinite;
+      }
+      .middle::before{
+          background-color: red;
+          box-shadow: 0 0 20px red;
+      }
+      .middle::after{
+          background-color: red;
+          box-shadow: 0 0 20px red;
+      }
+      @keyframes love {
+        0% {
+          transform: rotate(45deg) scale(0.95);
+        }
+        50% {
+          transform: rotate(45deg) scale(1);
+        }
+        100% {
+          transform: rotate(45deg) scale(0.95);
+        }
+      }
+      .green,
+      .green::before,
+      .green::after {
+        box-shadow: 0 0 20px green;
+        background-color: green;
+      }
+      .red,
+      .red::before,
+      .red::after {
+        box-shadow: 0 0 20px red;
+        background-color: red;
+      }
+      .purple,
+      .purple::before,
+      .purple::after {
+        box-shadow: 0 0 20px purple;
+        background-color: purple;
+      }
+      .yellow,
+      .yellow::before,
+      .yellow::after {
+        box-shadow: 0 0 20px yellow;
+        background-color: yellow;
+      }
+      .pink,
+      .pink::before,
+      .pink::after {
+        box-shadow: 0 0 20px pink;
+        background-color: pink;
+      }
+      .orange,
+      .orange::before,
+      .orange::after {
+        box-shadow: 0 0 20px orange;
+        background-color: orange;
+      }
+      .blue,
+      .blue::before,
+      .blue::after {
+        box-shadow: 0 0 20px blue;
+        background-color: blue;
+      }
+      .text{
+          margin:0px auto;
+          width:500px;
+          font-size: 30px;
+          line-height: 30px;
+          text-align: center;
+          color: rgba(255, 0, 0, 0.5);
+          opacity: 0.6;
+          animation: love_text 1s infinite;
+      }
+      @keyframes love_text {
+        0% {
+          transform: scale(0.95);
+        }
+        50% {
+          transform: scale(1);
+        }
+        100% {
+          transform:  scale(0.95);
+        }
+    </style>
+  </head>
+  <body>
+    <div class="middle" id="p"></div>
+    <div class="text"> love you three thousand times</div>
+    <script>
+      var counter = 50;
+      var body = document.querySelector("body");
+      for (var i = 0; i <= counter; i++) {
+        var aixin = document.createElement("div");
+        aixin.setAttribute("class", "aixin");
+        var div_box = document.createElement("div");
+        div_box.setAttribute("class", "box");
+        div_box.appendChild(aixin);
+        body.appendChild(div_box);
+      }
+      var aixins = document.querySelectorAll(".aixin");
+      var div_box = document.querySelectorAll(".box");
+      for (var i = 0; i <= counter; i++) {
+        aixins[i].style.left = Math.random() * window.innerWidth + "px";
+        aixins[i].style.top = Math.random() * window.innerHeight + "px";
+      }
+      var select = [
+        "green",
+        "red",
+        "purple",
+        "yellow",
+        "pink",
+        "orange",
+        "blue",
+      ];
+      var time = setInterval(function () {
+        aixins[counter].style.animation = "moveX 3s linear infinite";
+        div_box[counter].style.animation = "moveY 30s linear infinite";
+        aixins[counter].setAttribute("id", "p");
+        aixins[counter].setAttribute(
+          "class",
+          "aixin " + select[Math.ceil(Math.random() * 6)]
+        );
+        counter--;
+        if (counter < 0) {
+          clearInterval(time);
+        }
+      }, 100);
+    </script>
+  </body>
+</html>
+
