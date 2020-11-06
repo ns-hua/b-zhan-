@@ -1,0 +1,1029 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+ 
+	<style>
+	* {
+    padding: 0px;
+    margin: 0px;
+}
+#player{
+    width:1920px;
+    height:1080px;
+    
+}
+
+
+#header{
+    width:100%;
+    height:200px;
+    position: absolute;
+    background-color: #f4f4f4;
+    background-image: url("https://gss0.baidu.com/-Po3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/00e93901213fb80eb808fab23bd12f2eb83894fe.jpg");
+    background-size:cover ;
+    opacity:0.6;
+	background-position:30% 30%; 
+}
+#header img{
+    width:43px;
+    height:40px;
+    background:url("http://icon.chrafz.com/uploads/allimg/170119/1-1F119131I60-L.png") no-repeat;
+    background-size:contain ;
+    float:right;
+}
+#content{
+    position: absolute;
+    top:46px;
+    left: 50%;
+    transform: translate(-50%);
+    
+}
+
+#header input{
+    font-size: 18px;
+    height:36px;
+    width:300px;
+    color: #666;
+    padding: 0px 15px;
+}
+
+#header h3{
+    font-size: 19px;
+    height:36px;
+    width:230px;
+    color: #666;
+    padding: 10px 70px;
+}
+
+#Nav{
+    float: right;
+    position: absolute;
+    top:46px;
+    right:20px;
+}
+
+#Nav ul li{
+    list-style-type:none;
+    float: left;
+    margin-left: 15px;
+}
+
+#Nav ul li a{
+    text-decoration: none;
+    color:#777;
+    font-size: 20px;
+}
+#Nav ul li a:hover{
+    color:#009af3;
+}
+
+#container{
+    position: absolute;
+    float: left;
+    width: 800px;
+    min-height: 500px;
+    margin: 0 auto;
+    margin-top: 18px;
+    padding-left: 20px;
+    font-size: 16px;
+    color: #666;
+    left: 3%;
+    top:256px;
+    height:900px;
+    width:800px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+#container::-webkit-scrollbar {
+    display: none;
+}
+
+#middle{
+    position: absolute;
+    right:750px;
+    top: 350px;
+    float: right;
+    width:700px;
+    height: 700px;
+    background-color: black;
+    border-radius: 50%;
+
+}
+#xuanzhuan{
+    position: absolute;
+    width:500px;
+    height: 500px;
+    border-radius: 50%;
+    animation:play 15s linear infinite paused;
+    left:100px;
+    top:100px;
+}
+    
+
+
+#middle img.xuanzhuan{
+    animation:play 15s linear infinite running;
+}
+
+#right{
+    position: absolute;
+    top: 300px;
+    right:100px;
+
+}
+
+#right #commentList{
+    width:450px;
+    height:880px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+#right #commentList::-webkit-scrollbar {
+    display: none;
+}
+
+#right #commentPack{
+    
+    width:450px;
+    padding: 6px 0;
+    position: relative;
+    
+    border-bottom: 1px dotted #ccc;
+}
+#right #commentPack:hover{
+    background-color: #f5f8fb;
+    
+}
+
+#right #commentPack img{
+    float: left;
+    width:50px;
+    height:50px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+#right #commentPack #userName{
+    
+    font-size:21px;
+}
+#right #commentPack #commentContent{
+    font-size:21px;
+    
+}
+
+
+#right #commentPack #userName{
+    color:#14a9ff;
+}
+#right #commentPack #commentTime{
+    color:#090101ad;
+}
+#container #List_content:hover{
+    background-color: #f5f8fb;
+    color: #14a9ff;
+}
+
+#container div div{
+    
+    border-bottom: 1px solid #f2f2f2;
+    padding: 12px 0;
+    line-height: 30px;
+    color: #333
+}
+#bottom{
+    position: absolute;
+    bottom:3.5%;
+    right:41%;
+}
+
+#container #span{
+    display: block;
+    background-color: #f5f8fb;
+    color:#666;
+    font-size: 20px;
+    padding: 12px 0;
+    height: 30px;
+    width: 800px;
+    
+}
+
+#container #div_span{
+    position: absolute;
+    right:50px;
+    font-size:30px;
+    color: crimson;
+}
+#container #div_span:hover{
+    color:rgba(190, 9, 78, 0.479);
+
+}
+
+#container a{
+    text-decoration: none;
+    color:#666;
+    font-size: 23px;
+}
+#container a:hover{
+    color:#14a9ff;
+}
+
+iframe{
+    position: absolute;
+    top:0px;
+
+}
+
+#bodan1{
+    position: absolute;
+    top: 350px;
+    right: 120px;
+    color: rgb(4, 36, 77);
+    width:450px;
+}
+#bodan2{
+    position: absolute;
+    top:-50px;
+    right:0px;
+}
+#bodan3{
+    width:450px;
+    height:864px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    position: absolute;
+}
+#bodan3::-webkit-scrollbar {
+    display: none;
+}
+
+.bodan5{
+    border-bottom: 1px solid #f2f2f2;
+    
+    font-size: 18px;
+    color: #333;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.bodan5 span{
+    float:left;
+    color:rgb(131, 88, 165);
+    font-size: 18px;
+    padding: 13.5px;
+    
+}
+.bodan4{
+    width: 300px;
+    padding: 10px 15px;
+    left:23px;
+    float:left;
+}
+.bodan5:hover{
+    background-color: #f5f8fb;
+    color: red;
+}
+.shanchu{
+    width:30px;
+    height:30px;
+    position: absolute;
+    right:0px;
+    top:10px;
+    background-image: url("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1603466454613&di=4a6e6f192dda8557887307be0a9ccf9b&imgtype=0&src=http%3A%2F%2Fbpic.588ku.com%2Felement_origin_min_pic%2F01%2F49%2F31%2F8457446028aeedf.jpg");
+    background-size: contain;
+}
+
+.playing{
+    
+    color:#87CEEB !important;
+}
+
+.top{
+    z-index: 10000;
+}
+.true {
+    width: 18px;
+    height: 18px;
+    background-color:rgb(235, 63, 132);
+    position: relative;
+    transform: rotate(45deg);
+    position: absolute;
+    top:20px;
+    right:60px;
+  }
+
+.false{
+    width: 18px;
+    height: 18px;
+    background-color: #FFE4E1;
+    position: relative;
+    transform: rotate(45deg);
+    position: absolute;
+    top:20px;
+    right:60px;
+}
+.false::before {
+    content: " ";
+    width: 18px;
+    height: 18px;
+    background-color: inherit;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    right: 9px;
+}
+.false::after {
+    content: " ";
+    width: 18px;
+    height: 18px;
+    background-color: inherit;
+    border-radius: 50%;
+    position: absolute;
+    left: 0;
+    bottom: 9px;
+}
+.true::before {
+    content: " ";
+    width: 18px;
+    height: 18px;
+    background-color: inherit;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    right: 9px;
+}
+.true::after {
+    content: " ";
+    width: 18px;
+    height: 18px;
+    background-color: inherit;
+    border-radius: 50%;
+    position: absolute;
+    left: 0;
+    bottom: 9px;
+}
+ 
+  
+
+@keyframes play{
+    from {transform: rotate(1deg);}
+    to {transform: rotate(360deg);}
+}
+
+
+	</style>
+</head>
+
+<body>
+    <iframe id="iframe" src="https://www.17sucai.com/preview/1528155/2019-04-27/star/demo.html" frameborder="0" width="100%" height="1200px"></iframe>
+    <div id = "player">
+        <div id="header">
+            <div id="content">
+                <img id="search" @click="searchMusic" style="cursor: pointer;">
+                <input id = "input" type="text" v-model="query" @keyup.enter="searchMusic" placeholder="请输入想要查询的歌曲">
+                <h3 id="h3" @click="bodan" style="cursor: pointer;">播放队列中的歌曲</h3>
+            </div>
+            <div id="Nav">
+                <ul>
+                    <li><a href="https://www.baidu.com/" target="_Blank">百度搜索</a></li>
+                    <li><a href="https://www.bilibili.com/" target="_Blank">哔哩哔哩</a></li>
+                    <li><a href="https://v.qq.com/" target="_Blank">腾讯视频</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="container">
+            <div id="left">
+                
+                <span id="span" style="visibility:hidden;">歌曲名</span>
+               
+                <div id="List_content" class="List_content"
+                     v-for="(item,index) in musicList">
+                        <a href="javascript:;" @click="playMusic(item.FileHash,index)">{{ item["FileName"] }}</a>
+                        <span id="div_span" @click="addArr(item.FileHash,item.FileName)" style="cursor: pointer;">+</span>
+                </div>   
+                    
+                
+            </div>
+            
+        </div>
+        <div id="middle" style="visibility:hidden;">
+                <img id="xuanzhuan" class="" :src="playImg" >
+        </div>
+        <div id="right">
+            <h2 style="visibility:hidden; cursor:pointer" id="h2"  @click="commentDisplay">最新评论</h2>
+            <div id="commentList" class="commentList" style="visibility:hidden;">
+                <div id="commentPack"  v-for="item in commentLsit" >
+                    <img :src="item.user_pic">
+                    <div id="commentPack_2">
+                        <span id="userName">{{item.user_name+"  :"}}&nbsp&nbsp</span>
+                        <span id="commentContent">{{"  "+item.content}}</span>
+                    </div>
+                        <div id="commentTime">{{item.updatetime}}</div>
+                </div>
+            </div>    
+        </div>
+"
+        <div id="bottom" style="visibility:hidden;">
+            <audio  :src="playUrl"  id="audio" 
+        autoplay = "autoplay" controls="controls" @play="play" @pause="pause" @ended="ended"></audio>
+        </div>"
+        <div id="bodan1"  >
+            <h2 id="bodan2"  style="visibility:hidden; cursor:pointer" @click="bodanDisplay" >播放队列</h2>
+            <div id="bodan3" class = "bodan3" style="visibility:hidden;">
+                <div id="bodanList" v-for="(item,index) in bodanList">
+                    <div  class="bodan5">
+                        <span>{{index}}</span>
+                        <div class="bodan4"  @dblclick ="shanchu(index)">{{item.name}}</div>
+                            <div :class="[item.like=='false'?'false':'true']" @click="color(index)"></div>
+                            <div class="shanchu" @click="shanchu_2(index)"></div>
+                        
+
+                        
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+<script>
+function id_find(word){
+    faultylabs = {};
+    faultylabs.MD5 = function(a) {
+    function b(a) {
+        var b = (a >>> 0).toString(16);
+        return "00000000".substr(0, 8 - b.length) + b
+    }
+    function c(a) {
+        for (var b = [], c = 0; c < a.length; c++)
+            b = b.concat(k(a[c]));
+        return b
+    }
+    function d(a) {
+        for (var b = [], c = 0; 8 > c; c++)
+            b.push(255 & a),
+            a >>>= 8;
+        return b
+    }
+    function e(a, b) {
+        return a << b & 4294967295 | a >>> 32 - b
+    }
+    function f(a, b, c) {
+        return a & b | ~a & c
+    }
+    function g(a, b, c) {
+        return c & a | ~c & b
+    }
+    function h(a, b, c) {
+        return a ^ b ^ c
+    }
+    function i(a, b, c) {
+        return b ^ (a | ~c)
+    }
+    function j(a, b) {
+        return a[b + 3] << 24 | a[b + 2] << 16 | a[b + 1] << 8 | a[b]
+    }
+    function k(a) {
+        for (var b = [], c = 0; c < a.length; c++)
+            if (a.charCodeAt(c) <= 127)
+                b.push(a.charCodeAt(c));
+            else
+                for (var d = encodeURIComponent(a.charAt(c)).substr(1).split("%"), e = 0; e < d.length; e++)
+                    b.push(parseInt(d[e], 16));
+        return b
+    }
+    function l() {
+        for (var a = "", c = 0, d = 0, e = 3; e >= 0; e--)
+            d = arguments[e],
+            c = 255 & d,
+            d >>>= 8,
+            c <<= 8,
+            c |= 255 & d,
+            d >>>= 8,
+            c <<= 8,
+            c |= 255 & d,
+            d >>>= 8,
+            c <<= 8,
+            c |= d,
+            a += b(c);
+        return a
+    }
+    function m(a) {
+        for (var b = new Array(a.length), c = 0; c < a.length; c++)
+            b[c] = a[c];
+        return b
+    }
+    function n(a, b) {
+        return 4294967295 & a + b
+    }
+    function o() {
+        function a(a, b, c, d) {
+            var f = v;
+            v = u,
+            u = t,
+            t = n(t, e(n(s, n(a, n(b, c))), d)),
+            s = f
+        }
+        var b = p.length;
+        p.push(128);
+        var c = p.length % 64;
+        if (c > 56) {
+            for (var k = 0; 64 - c > k; k++)
+                p.push(0);
+            c = p.length % 64
+        }
+        for (k = 0; 56 - c > k; k++)
+            p.push(0);
+        p = p.concat(d(8 * b));
+        var m = 1732584193
+            , o = 4023233417
+            , q = 2562383102
+            , r = 271733878
+            , s = 0
+            , t = 0
+            , u = 0
+            , v = 0;
+        for (k = 0; k < p.length / 64; k++) {
+            s = m,
+            t = o,
+            u = q,
+            v = r;
+            var w = 64 * k;
+            a(f(t, u, v), 3614090360, j(p, w), 7),
+            a(f(t, u, v), 3905402710, j(p, w + 4), 12),
+            a(f(t, u, v), 606105819, j(p, w + 8), 17),
+            a(f(t, u, v), 3250441966, j(p, w + 12), 22),
+            a(f(t, u, v), 4118548399, j(p, w + 16), 7),
+            a(f(t, u, v), 1200080426, j(p, w + 20), 12),
+            a(f(t, u, v), 2821735955, j(p, w + 24), 17),
+            a(f(t, u, v), 4249261313, j(p, w + 28), 22),
+            a(f(t, u, v), 1770035416, j(p, w + 32), 7),
+            a(f(t, u, v), 2336552879, j(p, w + 36), 12),
+            a(f(t, u, v), 4294925233, j(p, w + 40), 17),
+            a(f(t, u, v), 2304563134, j(p, w + 44), 22),
+            a(f(t, u, v), 1804603682, j(p, w + 48), 7),
+            a(f(t, u, v), 4254626195, j(p, w + 52), 12),
+            a(f(t, u, v), 2792965006, j(p, w + 56), 17),
+            a(f(t, u, v), 1236535329, j(p, w + 60), 22),
+            a(g(t, u, v), 4129170786, j(p, w + 4), 5),
+            a(g(t, u, v), 3225465664, j(p, w + 24), 9),
+            a(g(t, u, v), 643717713, j(p, w + 44), 14),
+            a(g(t, u, v), 3921069994, j(p, w), 20),
+            a(g(t, u, v), 3593408605, j(p, w + 20), 5),
+            a(g(t, u, v), 38016083, j(p, w + 40), 9),
+            a(g(t, u, v), 3634488961, j(p, w + 60), 14),
+            a(g(t, u, v), 3889429448, j(p, w + 16), 20),
+            a(g(t, u, v), 568446438, j(p, w + 36), 5),
+            a(g(t, u, v), 3275163606, j(p, w + 56), 9),
+            a(g(t, u, v), 4107603335, j(p, w + 12), 14),
+            a(g(t, u, v), 1163531501, j(p, w + 32), 20),
+            a(g(t, u, v), 2850285829, j(p, w + 52), 5),
+            a(g(t, u, v), 4243563512, j(p, w + 8), 9),
+            a(g(t, u, v), 1735328473, j(p, w + 28), 14),
+            a(g(t, u, v), 2368359562, j(p, w + 48), 20),
+            a(h(t, u, v), 4294588738, j(p, w + 20), 4),
+            a(h(t, u, v), 2272392833, j(p, w + 32), 11),
+            a(h(t, u, v), 1839030562, j(p, w + 44), 16),
+            a(h(t, u, v), 4259657740, j(p, w + 56), 23),
+            a(h(t, u, v), 2763975236, j(p, w + 4), 4),
+            a(h(t, u, v), 1272893353, j(p, w + 16), 11),
+            a(h(t, u, v), 4139469664, j(p, w + 28), 16),
+            a(h(t, u, v), 3200236656, j(p, w + 40), 23),
+            a(h(t, u, v), 681279174, j(p, w + 52), 4),
+            a(h(t, u, v), 3936430074, j(p, w), 11),
+            a(h(t, u, v), 3572445317, j(p, w + 12), 16),
+            a(h(t, u, v), 76029189, j(p, w + 24), 23),
+            a(h(t, u, v), 3654602809, j(p, w + 36), 4),
+            a(h(t, u, v), 3873151461, j(p, w + 48), 11),
+            a(h(t, u, v), 530742520, j(p, w + 60), 16),
+            a(h(t, u, v), 3299628645, j(p, w + 8), 23),
+            a(i(t, u, v), 4096336452, j(p, w), 6),
+            a(i(t, u, v), 1126891415, j(p, w + 28), 10),
+            a(i(t, u, v), 2878612391, j(p, w + 56), 15),
+            a(i(t, u, v), 4237533241, j(p, w + 20), 21),
+            a(i(t, u, v), 1700485571, j(p, w + 48), 6),
+            a(i(t, u, v), 2399980690, j(p, w + 12), 10),
+            a(i(t, u, v), 4293915773, j(p, w + 40), 15),
+            a(i(t, u, v), 2240044497, j(p, w + 4), 21),
+            a(i(t, u, v), 1873313359, j(p, w + 32), 6),
+            a(i(t, u, v), 4264355552, j(p, w + 60), 10),
+            a(i(t, u, v), 2734768916, j(p, w + 24), 15),
+            a(i(t, u, v), 1309151649, j(p, w + 52), 21),
+            a(i(t, u, v), 4149444226, j(p, w + 16), 6),
+            a(i(t, u, v), 3174756917, j(p, w + 44), 10),
+            a(i(t, u, v), 718787259, j(p, w + 8), 15),
+            a(i(t, u, v), 3951481745, j(p, w + 36), 21),
+            m = n(m, s),
+            o = n(o, t),
+            q = n(q, u),
+            r = n(r, v)
+        }
+        return l(r, q, o, m).toUpperCase()
+    }
+    var p = null
+        , q = null;
+    return "string" == typeof a ? p = k(a) : a.constructor == Array ? 0 === a.length ? p = a : "string" == typeof a[0] ? p = c(a) : "number" == typeof a[0] ? p = a : q = typeof a[0] : "undefined" != typeof ArrayBuffer ? a instanceof ArrayBuffer ? p = m(new Uint8Array(a)) : a instanceof Uint8Array || a instanceof Int8Array ? p = m(a) : a instanceof Uint32Array || a instanceof Int32Array || a instanceof Uint16Array || a instanceof Int16Array || a instanceof Float32Array || a instanceof Float64Array ? p = m(new Uint8Array(a.buffer)) : q = typeof a : q = typeof a,
+    q && alert("MD5 type mismatch, cannot process " + q),
+    o()
+    }
+    var timestamp = (new Date()).valueOf();;
+    o = ["NVPh5oo715z5DIWAeQlhMDsWXXQV4hwt", "bitrate=0", "callback=callback123"] ;
+    o.push("clienttime="+timestamp);
+    b = ["clientver=2000", "dfid=-", "inputtype=0", "iscorrection=1", "isfuzzy=0"];
+    o =  o.concat(b);
+    o.push("keyword="+word);
+    o.push("mid="+timestamp);
+    b = ["page=1", "pagesize=30", "platform=WebFilter", "privilege_filter=0", "srcappid=2919", "tag=em", "userid=-1"] ;
+    o =  o.concat(b);
+    o.push("uuid="+timestamp);
+    o.push("NVPh5oo715z5DIWAeQlhMDsWXXQV4hwt");
+    h = faultylabs.MD5(o.join(""));
+    num = []
+    num.push(h);
+    num.push(timestamp);
+    return num;
+
+}
+
+
+
+    window.onload=function(){
+        var arr = JSON.parse(localStorage.getItem("arr"));
+        app.bodanList = arr;
+    }
+
+    function callback123(data){
+        app.musicList=data["data"]["lists"];
+        app.musicName=[];
+        for(var i =0;i<app.musicList.length;i++){
+            app.musicName.push(app.musicList[i]["FileName"].split("<em>").join("").split("</em>").join(""));
+            app.musicList[i]["FileName"]=app.musicName[i];
+
+        }
+        
+    }
+    function jQuery12345(data){
+            app.playImg=data["data"]["img"];
+            app.playUrl=data["data"]["play_url"];
+        }
+    function callback123456(data){
+        
+        app.commentLsit=data.list;
+    }
+        
+    var app = new Vue({
+        el : '#player',
+        data:{
+            query:"",
+            musicList:[],
+            musicName:[],
+            playImg:"",
+            playUrl:"",
+            commentLsit:[],
+            bodanList:[],
+            
+
+        },
+        methods:{
+            searchMusic:function(){ArrayBuffer
+               var num= id_find(this.query);
+               console.log(num);
+               signature = num[0];
+               timestamp = num[1];
+               req_url ="https://complexsearch.kugou.com/v2/search/song?callback=callback123&keyword="+this.query+"&page=1&pagesize=30&bitrate=0&isfuzzy=0&tag=em&inputtype=0&platform=WebFilter&userid=-1&clientver=2000&iscorrection=1&privilege_filter=0&srcappid=2919&"+"clienttime="+timestamp+"&mid="+timestamp+"&uuid="+timestamp+"&dfid=-&signature="+signature
+               var script = document.createElement("script");
+               script.src = req_url;
+               document.body.appendChild(script);  
+               document.getElementById("span").removeAttribute("style");  
+               if(document.getElementById("iframe")){
+                   var ifra = document.getElementById("iframe");
+                   document.body.removeChild(ifra);
+               }
+
+            },
+            playMusic:function(Hash,index){
+                var num = JSON.parse(localStorage.getItem("num"));
+                console.log(num);
+                document.getElementsByClassName("List_content")[num].getElementsByTagName("a")[0].classList.remove("playing");
+                url="https://wwwapi.kugou.com/yy/index.php?r=play/getdata&callback=jQuery12345&hash="+Hash+"&album_id=&dfid=1I4lWw4SGb0Z18hpvJ3Vkn69&mid=6d45f9bc08fcb1781a47891670eab2b5&platid=4";
+                var script = document.createElement("script");
+                script.src = url;
+                document.body.appendChild(script); 
+                document.getElementById("xuanzhuan").removeAttribute("style");
+                var script_2 =document.createElement("script");
+                url_2 = "http://mcommentretry.kugou.com/index.php?r=commentsv2/getCommentWithLike&callback=callback123456&appid=1000&code=fc4be23b4e972707f36b8a828a93ba8a&extdata="+Hash+"&pagesize=20";
+                script_2.src =  url_2;
+                document.body.appendChild(script_2);
+                var arr =JSON.parse(localStorage.getItem("arr"));
+                this.bodanList = arr;
+                document.getElementById("middle").removeAttribute("style");
+                document.getElementById("h2").setAttribute("style","cursor: pointer;");
+                document.getElementById("bottom").removeAttribute("style");
+                document.getElementById("commentList").removeAttribute("style");
+                document.getElementById("bodan2").setAttribute("style","cursor: pointer;");
+                document.getElementById("bodan3").setAttribute("style","visibility: hidden;");
+                var number = JSON.parse(localStorage.getItem("number"));
+                localStorage.setItem("num",JSON.stringify(index));
+                num = JSON.parse(localStorage.getItem("num"));
+                console.log(num);
+                document.getElementsByClassName("List_content")[num].getElementsByTagName("a")[0].classList.add("playing");
+                
+                document.getElementsByClassName("bodan4")[number].classList.remove("playing");
+                
+                
+            },
+            play:function(){
+                var arr =JSON.parse(localStorage.getItem("arr"));
+                this.bodanList = arr;
+                document.getElementById("xuanzhuan").classList.add("xuanzhuan");
+                
+            },
+            pause:function(){
+                document.getElementById("xuanzhuan").classList.remove("xuanzhuan");
+                
+            },
+
+            delete:function(){
+                var kaiguan = JSON.parse(localStorage.getItem("kaiguan"));
+                if (kaiguan == 0){
+                    localStorage.setItem("kaiguan",JSON.stringify(1));
+                    var arr =JSON.parse(localStorage.getItem("arr"));
+                    var number = JSON.parse(localStorage.getItem("number"));
+                    var list = document.getElementsByClassName("bodan4");
+                    var number = JSON.parse(localStorage.getItem("number"));
+                    console.log(document.getElementsByClassName("bodan4"));
+                    document.getElementsByClassName("bodan4")[number].classList.add("playing");
+                    console.log(number);
+                    var arr = JSON.parse(localStorage.getItem("arr"));
+                    var first = arr[number];
+                    var script = document.createElement("script");
+                    url="https://wwwapi.kugou.com/yy/index.php?r=play/getdata&callback=jQuery12345&hash="+first.Hash+"&album_id=&dfid=1I4lWw4SGb0Z18hpvJ3Vkn69&mid=6d45f9bc08fcb1781a47891670eab2b5&platid=4";
+                    script.src = url;
+                    document.body.appendChild(script);
+                    var script_2 =document.createElement("script");
+                    url_2 = "http://mcommentretry.kugou.com/index.php?r=commentsv2/getCommentWithLike&callback=callback123456&appid=1000&code=fc4be23b4e972707f36b8a828a93ba8a&extdata="+first.Hash+"&pagesize=20";
+                    script_2.src =  url_2;
+                    document.body.appendChild(script_2);
+                    this.musicList=[];
+                    this.musicList.push({"FileName":first.name,"FileHash":first.Hash});
+                    localStorage.setItem("number",JSON.stringify(number));
+                    localStorage.setItem("arr",JSON.stringify(arr));
+                    this.bodanList = arr;
+                }
+                else{
+                    var arr =JSON.parse(localStorage.getItem("arr"));
+                    var number = JSON.parse(localStorage.getItem("number"));
+                    document.getElementsByClassName("bodan4")[number].classList.remove("playing");
+                    if(number < arr.length-1){
+                         number = number+1;
+                     }
+                     else{
+                         number = 0;
+                     }
+                    document.getElementsByClassName("bodan4")[number].classList.add("playing");
+                    console.log(number);
+                    console.log("123");
+                    var list = document.getElementsByClassName("bodan4");
+                    var arr = JSON.parse(localStorage.getItem("arr"));
+                    var first = arr[number];
+                    var script = document.createElement("script");
+                    url="https://wwwapi.kugou.com/yy/index.php?r=play/getdata&callback=jQuery12345&hash="+first.Hash+"&album_id=&dfid=1I4lWw4SGb0Z18hpvJ3Vkn69&mid=6d45f9bc08fcb1781a47891670eab2b5&platid=4";
+                    script.src = url;
+                    document.body.appendChild(script);
+                    var script_2 =document.createElement("script");
+                    url_2 = "http://mcommentretry.kugou.com/index.php?r=commentsv2/getCommentWithLike&callback=callback123456&appid=1000&code=fc4be23b4e972707f36b8a828a93ba8a&extdata="+first.Hash+"&pagesize=20";
+                    script_2.src =  url_2;
+                    document.body.appendChild(script_2);
+                    this.musicList=[];
+                    this.musicList.push({"FileName":first.name,"FileHash":first.Hash});
+                    localStorage.setItem("number",JSON.stringify(number));
+                    localStorage.setItem("arr",JSON.stringify(arr));
+                    this.bodanList = arr;
+                    var number= localStorage.getItem("number");
+                    console.log(number);
+                }
+                
+
+
+                console.log(number);
+            },
+
+            addArr:function(Hash,name){
+                var arr = JSON.parse(localStorage.getItem("arr"));
+                var xinhao = 1;
+                for(var i =0;i<arr.length;i++){
+                    if(arr[i].name==name){
+                        xinhao = 0;
+                        alert("该首歌曲已在播放队列里面了");
+                        return;
+                    }
+                }
+                var dict = {"Hash":Hash,"name":name,"like":"false"};
+                arr.push(dict);
+                localStorage.setItem("arr",JSON.stringify(arr));
+                this.bodanList = arr;
+            },
+            bodan:function(){
+
+               document.getElementById("span").removeAttribute("style");  
+               if(document.getElementById("iframe")){
+                   var ifra = document.getElementById("iframe");
+                   document.body.removeChild(ifra);
+               }
+              
+               var bottom = document.getElementById("bottom");
+               var arr = JSON.parse(localStorage.getItem("arr"));
+               this.bodanList = arr;
+               if(arr.length==0){
+                   
+                   alert("目前播放列表里面没有歌曲" );
+               }
+               if(arr.length != 0){
+                  document.getElementById("middle").removeAttribute("style");
+                  document.getElementById("h2").setAttribute("style","cursor: pointer;");  
+                  document.getElementById("bottom").removeAttribute("style");  
+                  document.getElementById("bodan2").setAttribute("style","cursor: pointer;");    
+                  document.getElementById("bodan3").removeAttribute("style");
+                  document.getElementById("commentList").setAttribute("style","visibility: hidden;");
+                  console.log(JSON.parse(localStorage.getItem("arr")));
+                  this.delete();
+                  var list = document.getElementsByClassName("bodan4");
+                  var number = JSON.parse(localStorage.getItem("number"));
+                  console.log(number);
+                  console.log(document.getElementsByClassName("bodan4"));
+                  document.getElementsByClassName("bodan4")[number].classList.add("playing");
+
+                }
+                console.log(this.bodanList);
+            },
+             bodanDisplay:function(){
+                document.getElementById("commentList").setAttribute("style","visibility: hidden;");
+                document.getElementById("bodan3").removeAttribute("style"); 
+                document.getElementsByClassName("commentList")[0].classList.remove("top"); 
+                document.getElementsByClassName("bodan3")[0].classList.add("top"); 
+                
+
+            },
+             commentDisplay:function(){
+                document.getElementById("bodan3").setAttribute("style","visibility: hidden;");
+                document.getElementById("commentList").removeAttribute("style");
+                document.getElementsByClassName("commentList")[0].classList.add("top");  
+                document.getElementsByClassName("bodan3")[0].classList.remove("top"); 
+             },
+             shanchu:function(index){
+                console.log(index);
+                var arr = JSON.parse(localStorage.getItem("arr"));
+                var first = arr[index];
+                var number = localStorage.getItem("number");
+                document.getElementsByClassName("bodan4")[number].classList.remove("playing");
+                number = index;
+                document.getElementsByClassName("bodan4")[number].classList.add("playing");
+                localStorage.setItem("number",number);
+                var script = document.createElement("script");
+                url="https://wwwapi.kugou.com/yy/index.php?r=play/getdata&callback=jQuery12345&hash="+first.Hash+"&album_id=&dfid=1I4lWw4SGb0Z18hpvJ3Vkn69&mid=6d45f9bc08fcb1781a47891670eab2b5&platid=4";
+                script.src = url;
+                document.body.appendChild(script);
+                var script_2 =document.createElement("script");
+                url_2 = "http://mcommentretry.kugou.com/index.php?r=commentsv2/getCommentWithLike&callback=callback123456&appid=1000&code=fc4be23b4e972707f36b8a828a93ba8a&extdata="+first.Hash+"&pagesize=20";
+                script_2.src =  url_2;
+                document.body.appendChild(script_2);
+                this.musicList=[];
+                this.musicList.push({"FileName":first.name,"FileHash":first.Hash});
+                localStorage.setItem("arr",JSON.stringify(arr));
+                this.bodanList = arr;
+                var number= localStorage.getItem("number");
+                console.log(number);
+             },
+             shanchu_2:function(index){
+                var arr = JSON.parse(localStorage.getItem("arr"));
+                var number = JSON.parse(localStorage.getItem("number"));
+                document.getElementsByClassName("bodan4")[number].classList.remove("playing");
+                arr.splice(index,1);
+                localStorage.setItem("arr",JSON.stringify(arr));
+                if(number == index&&index!=0){
+                    number = number-1;
+                    
+                }
+                if(number > index){
+                    number = number-1;
+                    document.getElementsByClassName("bodan4")[number].classList.add("playing");
+                }
+                if(number == index&&index == 0&&arr.length!=0){
+                    number = 0;
+                    
+                }
+                if(number == index&&index == 0&&arr.length==0){
+                    number = 0;
+                }
+                if(number < index){
+                    number = number;
+                    document.getElementsByClassName("bodan4")[number].classList.add("playing");
+
+                }
+
+                
+                localStorage.setItem("number",JSON.stringify(number));
+                this.bodanList = arr;
+             },
+             ended:function(){
+                 var arr =JSON.parse(localStorage.getItem("arr"));
+                 var number = JSON.parse(localStorage.getItem("number"));
+                 console.log(number);
+                 document.getElementsByClassName("bodan4")[number].classList.remove("playing");
+                 if(arr.length!=0){
+                    var number = JSON.parse(localStorage.getItem("number"));
+                    document.getElementsByClassName("bodan4")[number].classList.remove("playing");
+                     if(number < arr.length-1){
+                         number = number+1;
+                     }
+                     else{
+                         number = 0;
+                     }
+                 document.getElementsByClassName("bodan4")[number].classList.add("playing");
+                 console.log(arr.length);
+                 localStorage.setItem("number",JSON.stringify(number));
+                 var first = arr[number];
+                 console.log(number);
+                 console.log(first)
+                 var script = document.createElement("script");
+                 url="https://wwwapi.kugou.com/yy/index.php?r=play/getdata&callback=jQuery12345&hash="+first.Hash+"&album_id=&dfid=1I4lWw4SGb0Z18hpvJ3Vkn69&mid=6d45f9bc08fcb1781a47891670eab2b5&platid=4";
+                 script.src = url;
+                 document.body.appendChild(script);
+                 var script_2 =document.createElement("script");
+                 url_2 = "http://mcommentretry.kugou.com/index.php?r=commentsv2/getCommentWithLike&callback=callback123456&appid=1000&code=fc4be23b4e972707f36b8a828a93ba8a&extdata="+first.Hash+"&pagesize=20";
+                 script_2.src =  url_2;
+                 document.body.appendChild(script_2);
+                 this.musicList=[];
+                 this.musicList.push({"FileName":first.name,"FileHash":first.Hash});
+                 this.bodanList = arr;
+
+                 
+
+                 }
+                 if(arr.length==0){
+                    var audio = document.getElementById("audio").loop = true;
+                    console.log(document.getElementById("audio").loop);
+                    console.log("123")
+                 }
+
+             },
+             color:function(index){
+                var arr=JSON.parse(localStorage.getItem("arr"));
+                if(arr[index].like == 'true'){
+                    arr[index].like = "false";
+                }
+                else{
+                    arr[index].like = "true";
+                }
+                localStorage.setItem("arr",JSON.stringify(arr));
+                console.log(arr[index].like);
+                this.bodanList = arr;
+                console.log(this.bodanList);
+             }
+
+            }
+    });
+    
+    if(localStorage.getItem("arr")==null){
+        var arr=[]; 
+        localStorage.setItem("arr",JSON.stringify(arr));
+    }
+    else{
+        var arr = localStorage.getItem("arr");
+    }
+    if(typeof(JSON.parse(localStorage.getItem("arr")))=="string"){
+        localStorage.clear();
+    }
+    
+if(JSON.parse(localStorage.getItem("number"))==null||JSON.parse(localStorage.getItem("number"))<0){
+    var number = 0;
+    localStorage.setItem("number",JSON.stringify(number));
+    
+}
+if(JSON.parse(localStorage.getItem("num"))==null){
+    var num = 0;
+    localStorage.setItem("num",JSON.stringify(num));
+}
+localStorage.setItem("kaiguan",JSON.stringify(0));
+console.log(JSON.parse(localStorage.getItem("arr")));
+console.log(JSON.parse(localStorage.getItem("number")));
+localStorage.setItem("num",JSON.stringify(0));
+
+</script>
+</html>
