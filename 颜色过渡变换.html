@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+      body {
+        width: 100%;
+        height: 100vh;
+        background: linear-gradient(
+          130deg,
+          red,
+          green,
+          #433351,
+          #a10c31,
+          #430fbb,
+          #129ac4
+        );
+        background-size: 400%;
+        background-position: 0% 50%;
+        animation: move 5s ease infinite alternate;
+      }
+      @keyframes move {
+        0% {
+          background-position: 0% 50%;
+        }
+        100% {
+          background-position: 100% 50%;
+        }
+      }
+    </style>
+  </head>
+  <body></body>
+</html>
