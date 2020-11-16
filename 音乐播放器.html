@@ -11,27 +11,50 @@
     padding: 0px;
     margin: 0px;
 }
-#player{
-    width:1920px;
+body{
     height:1080px;
+    overflow-y: hidden;
+}
+
+#player{
+    width:100%;
+    height:1080px;
+    
     
 }
 
 
 #header{
-    width:100%;
+    width:inherit;
+    height:200px;
+    position: relative;
+}
+#header #zhezhao{
+    width:inherit;
     height:200px;
     position: absolute;
     background-color: #f4f4f4;
-    background-image: url("https://gss0.baidu.com/-Po3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/00e93901213fb80eb808fab23bd12f2eb83894fe.jpg");
+    background-image: url("https://tse2-mm.cn.bing.net/th/id/OIP.yUVgo_dumqY8H-FcZHkORwHaEK?pid=Api&rs=1");
     background-size:cover ;
-    opacity:0.6;
+    opacity:0.65;
 	background-position:30% 30%; 
+    transition: all 1s ease-in-out;
 }
+#header #zhezhao:hover{
+    transition: all 1s ease-in-out;
+    opacity: 0.1 ;
+
+}
+
+.animation:hover{
+    transition: all 1s ease-in-out !important;
+    opacity: 0.7 !important;
+}
+
 #header img{
     width:43px;
     height:40px;
-    background:url("http://icon.chrafz.com/uploads/allimg/170119/1-1F119131I60-L.png") no-repeat;
+    background:url("https://tse1-mm.cn.bing.net/th/id/OIP.RA-ogWM6rfQXpeVvHt4FAAAAAA?pid=Api&w=300&h=300&rs=1") no-repeat;
     background-size:contain ;
     float:right;
 }
@@ -44,7 +67,7 @@
 }
 
 #header input{
-    font-size: 18px;
+    font-size: 20px;
     height:36px;
     width:300px;
     color: #666;
@@ -52,10 +75,10 @@
 }
 
 #header h3{
-    font-size: 19px;
+    font-size: 21px;
     height:36px;
     width:230px;
-    color: #666;
+    color: rgba(0, 0, 0, 0.438);
     padding: 10px 70px;
 }
 
@@ -74,17 +97,18 @@
 
 #Nav ul li a{
     text-decoration: none;
-    color:#777;
+    color:rgba(236, 99, 133);
     font-size: 20px;
 }
 #Nav ul li a:hover{
-    color:#009af3;
+    color:rgba(190, 9, 145, 0.816);
 }
+
 
 #container{
     position: absolute;
     float: left;
-    width: 800px;
+    width: 750px;
     min-height: 500px;
     margin: 0 auto;
     margin-top: 18px;
@@ -94,7 +118,6 @@
     left: 3%;
     top:256px;
     height:900px;
-    width:800px;
     overflow-x: hidden;
     overflow-y: scroll;
 }
@@ -106,7 +129,7 @@
 #middle{
     position: absolute;
     right:750px;
-    top: 350px;
+    top: 330px;
     float: right;
     width:700px;
     height: 700px;
@@ -198,10 +221,27 @@
 }
 #bottom{
     position: absolute;
-    bottom:3.5%;
-    right:41%;
+    top:88%;
+    left:48%;
 }
 
+#bottom #audio {
+    width: 230px;
+    height: 30px;
+}
+
+#bottom #jieshao{
+    text-decoration: none;
+    color: rgba(143, 13, 117, 0.672);
+    font-size: 23px;
+    display: block;
+    margin-left: 30px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+#bottom #jieshao:hover{
+    color:rgb(214, 24, 97);
+}
 #container #span{
     display: block;
     background-color: #f5f8fb;
@@ -209,7 +249,7 @@
     font-size: 20px;
     padding: 12px 0;
     height: 30px;
-    width: 800px;
+    width: 750px;
     
 }
 
@@ -376,14 +416,22 @@ iframe{
     to {transform: rotate(360deg);}
 }
 
+#chongzhi{
+    position: absolute;
+    left: -260px;
+    font-size: 23px;
+    color: blue;
+    bottom: 0px;
+}
 
 	</style>
 </head>
 
 <body>
-    <iframe id="iframe" src="https://www.17sucai.com/preview/1528155/2019-04-27/star/demo.html" frameborder="0" width="100%" height="1200px"></iframe>
+    <iframe id="iframe" src="https://www.17sucai.com/preview/1528155/2019-04-27/star/demo.html" frameborder="0" width="100%" height="1300px"></iframe>
     <div id = "player">
         <div id="header">
+            <div id = "zhezhao"></div>
             <div id="content">
                 <img id="search" @click="searchMusic" style="cursor: pointer;">
                 <input id = "input" type="text" v-model="query" @keyup.enter="searchMusic" placeholder="请输入想要查询的歌曲">
@@ -429,11 +477,14 @@ iframe{
                 </div>
             </div>    
         </div>
-"
+
         <div id="bottom" style="visibility:hidden;">
             <audio  :src="playUrl"  id="audio" 
         autoplay = "autoplay" controls="controls" @play="play" @pause="pause" @ended="ended"></audio>
-        </div>"
+        <div id = "chongzhi" onclick = "chongzhi()"  style="cursor:pointer">重置激活码</div>
+        <a id = "jieshao" href = "https://space.bilibili.com/473909239" target="_Blank">华某人制作@版权所有</a>
+        <h2 style = " margin-left: -40px;"><a style = "text-decoration: none; color : rgb(11, 30, 143) ;" target="_Blank" href="https://blog.csdn.net/weixin_47450998/article/details/109723222">若播放不了，请点击这里获得激活码</a></h2>
+        </div>
         <div id="bodan1"  >
             <h2 id="bodan2"  style="visibility:hidden; cursor:pointer" @click="bodanDisplay" >播放队列</h2>
             <div id="bodan3" class = "bodan3" style="visibility:hidden;">
@@ -463,6 +514,32 @@ iframe{
 
 
 <script>
+
+    kg_mid_chi = [
+    "fd87ec2a983db75583212f1217ed8c2e",
+    "d17dd6e2bd7636fbf824dda20a5fbc07",
+    "5ed548d9f1ada817661eaccc86fc9281",
+    "3315008d3b0196084b3bb593b565d854",
+    "bdeafa26f3fcc3c70444b50700b9e782",
+    "e759f09e417df336c9716fe15ab68aa3",
+    "d521cd508dacab64ce3939283b2b314e",
+    "9d3b3db987dcd0d53a312f2ade702cd1",
+    "7cb90ed545d49b70109be145cbfea313",
+    "61c3a2c0803755cfc3c7867afaff49ed",
+    "19adde53c91b2ac829d811283d220c56",
+    "d33b215e49345fbbefd3bc6a7cffbeed",
+    "567cf998020720bf322a2659935d1a9e",
+    "f724ce8afe1feff2b50c332d304ef887",
+    "db05609dafe119cc084f43605e787967",
+    "279b019e48e348efc3f57de511dac5c8",
+    "52583e8d355c44f15469e9706466db8f",
+    "3c4d96543cd53dadadec74045a267820"
+    ]
+    //若kg_mid_chi值使用失效，请到   https://space.bilibili.com/473909239     告诉up主更新
+
+
+
+
 function id_find(word){
     faultylabs = {};
     faultylabs.MD5 = function(a) {
@@ -631,7 +708,7 @@ function id_find(word){
             a(i(t, u, v), 3951481745, j(p, w + 36), 21),
             m = n(m, s),
             o = n(o, t),
-            q = n(q, u),
+            q = n(q, u),j
             r = n(r, v)
         }
         return l(r, q, o, m).toUpperCase()
@@ -662,12 +739,15 @@ function id_find(word){
 }
 
 
-
     window.onload=function(){
         var arr = JSON.parse(localStorage.getItem("arr"));
         app.bodanList = arr;
+        document.getElementsByTagName('body')[0].style.zoom=0.65;
+        document.getElementsByTagName('audio')[0].style.zoom=1.5;
+        
+        
     }
-
+    
     function callback123(data){
         app.musicList=data["data"]["lists"];
         app.musicName=[];
@@ -676,17 +756,79 @@ function id_find(word){
             app.musicList[i]["FileName"]=app.musicName[i];
 
         }
+        console.log(app.musicList);
         
     }
     function jQuery12345(data){
+            console.log(data);
+
             app.playImg=data["data"]["img"];
             app.playUrl=data["data"]["play_url"];
+            console.log(app.playUrl);
+        }
+    function jQuery1910319429999291708_1605413431427(data){
+            console.log(data);
+
+            app.playImg=data["data"]["img"];
+            app.playUrl=data["data"]["play_url"];
+            console.log(app.playUrl);
         }
     function callback123456(data){
         
         app.commentLsit=data.list;
     }
-        
+    function chongzhi(){
+                     var guandiao = document.querySelector(".guandiao");
+                    if(guandiao){
+                        guandiao.parentNode.removeChild(guandiao);
+                    }
+                    div = document.createElement("div");
+                    div.className = "guandiao";
+                    height = document.body.clientHeight*0.8;
+                    width = document.body.offsetWidth*0.8;
+                    div.style.width = width+"px";
+                    div.style.height = height +"px";
+                    div.style.position = "absolute";
+                    div.style.left = "50%";
+                    div.style.top = "50%";
+                    div.style.transform= "translate(-50%, -50%)";
+                    div.style.backgroundColor = "rgba(0,0,0,0.3)";
+                    body = document.getElementsByTagName("body");
+                    body[0].appendChild(div);
+                    input = document.createElement("input");
+                    input.style.width = "600"+"px";
+                    input.style.height = "80" +"px";
+                    input.style.position = "absolute";
+                    input.style.left = "37%";
+                    input.style.top = "50%";
+                    input.style.fontSize = "22px";
+                    input.placeholder = "请点击最下面的链接来获取激活码，粘贴后按下ENTER键";
+                    input.onkeypress = function(event){
+                        if (event.keyCode == 13) {
+                            kg_mid = input.value;
+                            localStorage.setItem("kg_mid",JSON.stringify(kg_mid));
+                            var guandiao = document.querySelector(".guandiao");
+                            guandiao.parentNode.removeChild(guandiao);
+                        }
+                        };
+                    div.appendChild(input); 
+                    div_2 = document.createElement("div");
+                    div_2.innerHTML = "x";
+                    div_2.style.width = "5rem";
+                    div_2.style.height = "5rem";
+                    div_2.style.fontSize = "3rem";
+                    div_2.style.position = "absolute";
+                    div_2.style.right = "10%";
+                    div_2.style.top = "8%";
+                    div_2.style.color = "white";
+                    div_2.style.cursor = "pointer";
+
+                    div_2.onclick = function(){
+                        var guandiao = document.querySelector(".guandiao");
+                        guandiao.parentNode.removeChild(guandiao);
+                    };
+                    div.appendChild(div_2);
+    }
     var app = new Vue({
         el : '#player',
         data:{
@@ -701,12 +843,13 @@ function id_find(word){
 
         },
         methods:{
-            searchMusic:function(){ArrayBuffer
+            searchMusic:function(){
                var num= id_find(this.query);
                console.log(num);
                signature = num[0];
                timestamp = num[1];
-               req_url ="https://complexsearch.kugou.com/v2/search/song?callback=callback123&keyword="+this.query+"&page=1&pagesize=30&bitrate=0&isfuzzy=0&tag=em&inputtype=0&platform=WebFilter&userid=-1&clientver=2000&iscorrection=1&privilege_filter=0&srcappid=2919&"+"clienttime="+timestamp+"&mid="+timestamp+"&uuid="+timestamp+"&dfid=-&signature="+signature
+               req_url ="https://complexsearch.kugou.com/v2/search/song?callback=callback123&keyword="+this.query+"&page=1&pagesize=30&bitrate=0&isfuzzy=0&tag=em&inputtype=0&platform=WebFilter&userid=-1&clientver=2000&iscorrection=1&privilege_filter=0&srcappid=2919&"+"clienttime="+timestamp+"&mid="+timestamp+"&uuid="+timestamp+"&dfid=-&signature="+signature;
+               console.log(req_url);
                var script = document.createElement("script");
                script.src = req_url;
                document.body.appendChild(script);  
@@ -715,21 +858,107 @@ function id_find(word){
                    var ifra = document.getElementById("iframe");
                    document.body.removeChild(ifra);
                }
-
+               document.querySelector("#zhezhao").style.opacity = 1;
+               document.querySelector("#zhezhao").style.backgroundImage = "url(https://zoom-background.net/wp-content/uploads/2020/05/%E3%83%97%E3%83%AA%E3%83%B3%E3%82%BB%E3%82%B9%E3%82%B3%E3%83%8D%E3%82%AF%E3%83%88_02.jpg)";
+               document.querySelector("#zhezhao").className = "animation";
+               
             },
             playMusic:function(Hash,index){
+                var kg_mid = JSON.parse(localStorage.getItem("kg_mid"));
+               if(kg_mid==null){
+                    var guandiao = document.querySelector(".guandiao");
+                    if(guandiao){
+                        guandiao.parentNode.removeChild(guandiao);
+                    }
+                    div = document.createElement("div");
+                    div.className = "guandiao";
+                    height = document.body.clientHeight*0.8;
+                    width = document.body.offsetWidth*0.8;
+                    div.style.width = width+"px";
+                    div.style.height = height +"px";
+                    div.style.position = "absolute";
+                    div.style.left = "50%";
+                    div.style.top = "50%";
+                    div.style.transform= "translate(-50%, -50%)";
+                    div.style.backgroundColor = "rgba(0,0,0,0.3)";
+                    body = document.getElementsByTagName("body");
+                    body[0].appendChild(div);
+                    input = document.createElement("input");
+                    input.style.width = "600"+"px";
+                    input.style.height = "80" +"px";
+                    input.style.position = "absolute";
+                    input.style.left = "37%";
+                    input.style.top = "50%";
+                    input.style.fontSize = "22px";
+                    input.placeholder = "请点击最下面的链接来获取激活码，粘贴后按下ENTER键";
+                    input.onkeypress = function(event){
+                        if (event.keyCode == 13) {
+                            kg_mid = input.value;
+                            localStorage.setItem("kg_mid",JSON.stringify(kg_mid));
+                            var guandiao = document.querySelector(".guandiao");
+                            guandiao.parentNode.removeChild(guandiao);
+                        }
+                        };
+                    div.appendChild(input); 
+                    div_2 = document.createElement("div");
+                    div_2.innerHTML = "x";
+                    div_2.style.width = "5rem";
+                    div_2.style.height = "5rem";
+                    div_2.style.fontSize = "3rem";
+                    div_2.style.position = "absolute";
+                    div_2.style.right = "10%";
+                    div_2.style.top = "8%";
+                    div_2.style.color = "white";
+                    div_2.style.cursor = "pointer";
+
+                    div_2.onclick = function(){
+                        var guandiao = document.querySelector(".guandiao");
+                        guandiao.parentNode.removeChild(guandiao);
+                    };
+                    div.appendChild(div_2);
+               }
+
                 var num = JSON.parse(localStorage.getItem("num"));
                 console.log(num);
                 document.getElementsByClassName("List_content")[num].getElementsByTagName("a")[0].classList.remove("playing");
-                url="https://wwwapi.kugou.com/yy/index.php?r=play/getdata&callback=jQuery12345&hash="+Hash+"&album_id=&dfid=1I4lWw4SGb0Z18hpvJ3Vkn69&mid=6d45f9bc08fcb1781a47891670eab2b5&platid=4";
+                
+                
+                
+                url="https://wwwapi.kugou.com/yy/index.php?r=play/getdata&callback=jQuery12345&hash="+Hash+"&mid="+kg_mid+"&platid=4";
+                console.log(url);
+
                 var script = document.createElement("script");
                 script.src = url;
-                document.body.appendChild(script); 
+                document.body.appendChild(script);
+                              
+
+
+
+
+
                 document.getElementById("xuanzhuan").removeAttribute("style");
+
+
+
+
+
+
+
                 var script_2 =document.createElement("script");
                 url_2 = "http://mcommentretry.kugou.com/index.php?r=commentsv2/getCommentWithLike&callback=callback123456&appid=1000&code=fc4be23b4e972707f36b8a828a93ba8a&extdata="+Hash+"&pagesize=20";
                 script_2.src =  url_2;
+                console.log(url_2);
                 document.body.appendChild(script_2);
+
+
+
+
+
+
+
+
+
+
                 var arr =JSON.parse(localStorage.getItem("arr"));
                 this.bodanList = arr;
                 document.getElementById("middle").removeAttribute("style");
@@ -760,6 +989,7 @@ function id_find(word){
             },
 
             delete:function(){
+                var kg_mid = JSON.parse(localStorage.getItem("kg_mid"));
                 var kaiguan = JSON.parse(localStorage.getItem("kaiguan"));
                 if (kaiguan == 0){
                     localStorage.setItem("kaiguan",JSON.stringify(1));
@@ -773,11 +1003,12 @@ function id_find(word){
                     var arr = JSON.parse(localStorage.getItem("arr"));
                     var first = arr[number];
                     var script = document.createElement("script");
-                    url="https://wwwapi.kugou.com/yy/index.php?r=play/getdata&callback=jQuery12345&hash="+first.Hash+"&album_id=&dfid=1I4lWw4SGb0Z18hpvJ3Vkn69&mid=6d45f9bc08fcb1781a47891670eab2b5&platid=4";
+                    url="https://wwwapi.kugou.com/yy/index.php?r=play/getdata&callback=jQuery12345&hash="+first.Hash+"&mid="+kg_mid;
+                    console.log(url);
                     script.src = url;
                     document.body.appendChild(script);
                     var script_2 =document.createElement("script");
-                    url_2 = "http://mcommentretry.kugou.com/index.php?r=commentsv2/getCommentWithLike&callback=callback123456&appid=1000&code=fc4be23b4e972707f36b8a828a93ba8a&extdata="+first.Hash+"&pagesize=20";
+                    url_2 = "http://mcommentretry.kugou.com/index.php?r=commentsv2/getCommentWithLike&callback=callback123456&appid=1000&code=fc4be23b4e972707f36b8a828a93ba8a&extdata="+first.Hash;
                     script_2.src =  url_2;
                     document.body.appendChild(script_2);
                     this.musicList=[];
@@ -803,11 +1034,11 @@ function id_find(word){
                     var arr = JSON.parse(localStorage.getItem("arr"));
                     var first = arr[number];
                     var script = document.createElement("script");
-                    url="https://wwwapi.kugou.com/yy/index.php?r=play/getdata&callback=jQuery12345&hash="+first.Hash+"&album_id=&dfid=1I4lWw4SGb0Z18hpvJ3Vkn69&mid=6d45f9bc08fcb1781a47891670eab2b5&platid=4";
+                    url="https://wwwapi.kugou.com/yy/index.php?r=play/getdata&callback=jQuery12345&hash="+first.Hash+"&mid="+kg_mid;
                     script.src = url;
                     document.body.appendChild(script);
                     var script_2 =document.createElement("script");
-                    url_2 = "http://mcommentretry.kugou.com/index.php?r=commentsv2/getCommentWithLike&callback=callback123456&appid=1000&code=fc4be23b4e972707f36b8a828a93ba8a&extdata="+first.Hash+"&pagesize=20";
+                    url_2 = "http://mcommentretry.kugou.com/index.php?r=commentsv2/getCommentWithLike&callback=callback123456&appid=1000&code=fc4be23b4e972707f36b8a828a93ba8a&extdata="+first.Hash;
                     script_2.src =  url_2;
                     document.body.appendChild(script_2);
                     this.musicList=[];
@@ -830,7 +1061,7 @@ function id_find(word){
                 for(var i =0;i<arr.length;i++){
                     if(arr[i].name==name){
                         xinhao = 0;
-                        alert("该首歌曲已在播放队列里面了");
+                        alert("该首歌曲已在播放队列里面了哦");
                         return;
                     }
                 }
@@ -840,7 +1071,6 @@ function id_find(word){
                 this.bodanList = arr;
             },
             bodan:function(){
-
                document.getElementById("span").removeAttribute("style");  
                if(document.getElementById("iframe")){
                    var ifra = document.getElementById("iframe");
@@ -871,6 +1101,9 @@ function id_find(word){
 
                 }
                 console.log(this.bodanList);
+                document.querySelector("#zhezhao").style.opacity = 1;
+                document.querySelector("#zhezhao").style.backgroundImage = "url(https://zoom-background.net/wp-content/uploads/2020/05/%E3%83%97%E3%83%AA%E3%83%B3%E3%82%BB%E3%82%B9%E3%82%B3%E3%83%8D%E3%82%AF%E3%83%88_02.jpg)";
+                document.querySelector("#zhezhao").className = "animation";
             },
              bodanDisplay:function(){
                 document.getElementById("commentList").setAttribute("style","visibility: hidden;");
@@ -888,6 +1121,7 @@ function id_find(word){
              },
              shanchu:function(index){
                 console.log(index);
+                var kg_mid = JSON.parse(localStorage.getItem("kg_mid"));
                 var arr = JSON.parse(localStorage.getItem("arr"));
                 var first = arr[index];
                 var number = localStorage.getItem("number");
@@ -896,11 +1130,12 @@ function id_find(word){
                 document.getElementsByClassName("bodan4")[number].classList.add("playing");
                 localStorage.setItem("number",number);
                 var script = document.createElement("script");
-                url="https://wwwapi.kugou.com/yy/index.php?r=play/getdata&callback=jQuery12345&hash="+first.Hash+"&album_id=&dfid=1I4lWw4SGb0Z18hpvJ3Vkn69&mid=6d45f9bc08fcb1781a47891670eab2b5&platid=4";
+                url="https://wwwapi.kugou.com/yy/index.php?r=play/getdata&callback=jQuery12345&hash="+first.Hash+"&mid="+kg_mid;
                 script.src = url;
+                console.log(url);
                 document.body.appendChild(script);
                 var script_2 =document.createElement("script");
-                url_2 = "http://mcommentretry.kugou.com/index.php?r=commentsv2/getCommentWithLike&callback=callback123456&appid=1000&code=fc4be23b4e972707f36b8a828a93ba8a&extdata="+first.Hash+"&pagesize=20";
+                url_2 = "http://mcommentretry.kugou.com/index.php?r=commentsv2/getCommentWithLike&callback=callback123456&appid=1000&code=fc4be23b4e972707f36b8a828a93ba8a&extdata="+first.Hash;
                 script_2.src =  url_2;
                 document.body.appendChild(script_2);
                 this.musicList=[];
@@ -962,11 +1197,11 @@ function id_find(word){
                  console.log(number);
                  console.log(first)
                  var script = document.createElement("script");
-                 url="https://wwwapi.kugou.com/yy/index.php?r=play/getdata&callback=jQuery12345&hash="+first.Hash+"&album_id=&dfid=1I4lWw4SGb0Z18hpvJ3Vkn69&mid=6d45f9bc08fcb1781a47891670eab2b5&platid=4";
+                 url="https://wwwapi.kugou.com/yy/index.php?r=play/getdata&callback=jQuery12345&hash="+first.Hash+"&mid="+kg_mid;
                  script.src = url;
                  document.body.appendChild(script);
                  var script_2 =document.createElement("script");
-                 url_2 = "http://mcommentretry.kugou.com/index.php?r=commentsv2/getCommentWithLike&callback=callback123456&appid=1000&code=fc4be23b4e972707f36b8a828a93ba8a&extdata="+first.Hash+"&pagesize=20";
+                 url_2 = "http://mcommentretry.kugou.com/index.php?r=commentsv2/getCommentWithLike&callback=callback123456&appid=1000&code=fc4be23b4e972707f36b8a828a93ba8a&extdata="+first.Hash;
                  script_2.src =  url_2;
                  document.body.appendChild(script_2);
                  this.musicList=[];
