@@ -226,8 +226,9 @@ body{
 }
 
 #bottom #audio {
-    width: 230px;
+    width: 260px;
     height: 30px;
+    margin-left: -50px;
 }
 
 #bottom #jieshao{
@@ -453,8 +454,8 @@ iframe{
                
                 <div id="List_content" class="List_content"
                      v-for="(item,index) in musicList">
-                        <a href="javascript:;" @click="playMusic(item.FileHash,index)">{{ item["FileName"] }}</a>
-                        <span id="div_span" @click="addArr(item.FileHash,item.FileName)" style="cursor: pointer;">+</span>
+                        <a href="javascript:;" @click="playMusic(item.FileHash,index,item.AlbumID)">{{ item["FileName"] }}</a>
+                        <span id="div_span" @click="addArr(item.FileHash,item.FileName,item.AlbumID)" style="cursor: pointer;">+</span>
                 </div>   
                     
                 
@@ -761,10 +762,16 @@ function id_find(word){
     }
     function jQuery12345(data){
             console.log(data);
-
             app.playImg=data["data"]["img"];
             app.playUrl=data["data"]["play_url"];
             console.log(app.playUrl);
+            app.album_id = data["data"]["album_id"];
+            console.log(app.album_id);
+        }
+        function jQuery123456(data){
+
+            app.album_id = data["data"]["album_id"];
+
         }
     function jQuery1910319429999291708_1605413431427(data){
             console.log(data);
@@ -839,7 +846,7 @@ function id_find(word){
             playUrl:"",
             commentLsit:[],
             bodanList:[],
-            
+            album_id:"",
 
         },
         methods:{
@@ -863,7 +870,8 @@ function id_find(word){
                document.querySelector("#zhezhao").className = "animation";
                
             },
-            playMusic:function(Hash,index){
+            playMusic:function(Hash,index,album_id){
+                console.log(album_id);
                 var kg_mid = JSON.parse(localStorage.getItem("kg_mid"));
                if(kg_mid==null){
                     var guandiao = document.querySelector(".guandiao");
@@ -923,11 +931,9 @@ function id_find(word){
                 document.getElementsByClassName("List_content")[num].getElementsByTagName("a")[0].classList.remove("playing");
                 
                 
-                
-                url="https://wwwapi.kugou.com/yy/index.php?r=play/getdata&callback=jQuery12345&hash="+Hash+"&mid="+kg_mid+"&platid=4";
-                console.log(url);
-
+ 
                 var script = document.createElement("script");
+                url="https://wwwapi.kugou.com/yy/index.php?r=play/getdata&callback=jQuery12345&hash="+Hash+"&mid="+kg_mid+"&album_id="+album_id+"&platid=4";
                 script.src = url;
                 document.body.appendChild(script);
                               
@@ -972,7 +978,7 @@ function id_find(word){
                 num = JSON.parse(localStorage.getItem("num"));
                 console.log(num);
                 document.getElementsByClassName("List_content")[num].getElementsByTagName("a")[0].classList.add("playing");
-                
+                console.log(document.getElementsByClassName("List_content")[num].getElementsByTagName("a")[0].classList);
                 document.getElementsByClassName("bodan4")[number].classList.remove("playing");
                 
                 
@@ -1002,8 +1008,11 @@ function id_find(word){
                     console.log(number);
                     var arr = JSON.parse(localStorage.getItem("arr"));
                     var first = arr[number];
+                    app.album_id = first.album_id;
                     var script = document.createElement("script");
-                    url="https://wwwapi.kugou.com/yy/index.php?r=play/getdata&callback=jQuery12345&hash="+first.Hash+"&mid="+kg_mid;
+                    app.album_id = first.album_id;
+                    console.log(arr);
+                    url="https://wwwapi.kugou.com/yy/index.php?r=play/getdata&callback=jQuery12345&hash="+first.Hash+"&mid="+kg_mid+"&album_id="+app.album_id+"&platid=4";
                     console.log(url);
                     script.src = url;
                     document.body.appendChild(script);
@@ -1034,7 +1043,8 @@ function id_find(word){
                     var arr = JSON.parse(localStorage.getItem("arr"));
                     var first = arr[number];
                     var script = document.createElement("script");
-                    url="https://wwwapi.kugou.com/yy/index.php?r=play/getdata&callback=jQuery12345&hash="+first.Hash+"&mid="+kg_mid;
+                    app.album_id = first.album_id;
+                    url="https://wwwapi.kugou.com/yy/index.php?r=play/getdata&callback=jQuery12345&hash="+first.Hash+"&mid="+kg_mid+"&album_id="+app.album_id+"&platid=4";
                     script.src = url;
                     document.body.appendChild(script);
                     var script_2 =document.createElement("script");
@@ -1055,7 +1065,7 @@ function id_find(word){
                 console.log(number);
             },
 
-            addArr:function(Hash,name){
+            addArr:function(Hash,name,album_id){
                 var arr = JSON.parse(localStorage.getItem("arr"));
                 var xinhao = 1;
                 for(var i =0;i<arr.length;i++){
@@ -1065,7 +1075,7 @@ function id_find(word){
                         return;
                     }
                 }
-                var dict = {"Hash":Hash,"name":name,"like":"false"};
+                var dict = {"Hash":Hash,"name":name,"like":"false","album_id":album_id};
                 arr.push(dict);
                 localStorage.setItem("arr",JSON.stringify(arr));
                 this.bodanList = arr;
@@ -1124,13 +1134,14 @@ function id_find(word){
                 var kg_mid = JSON.parse(localStorage.getItem("kg_mid"));
                 var arr = JSON.parse(localStorage.getItem("arr"));
                 var first = arr[index];
+                app.album_id = first.album_id; 
                 var number = localStorage.getItem("number");
                 document.getElementsByClassName("bodan4")[number].classList.remove("playing");
                 number = index;
                 document.getElementsByClassName("bodan4")[number].classList.add("playing");
                 localStorage.setItem("number",number);
                 var script = document.createElement("script");
-                url="https://wwwapi.kugou.com/yy/index.php?r=play/getdata&callback=jQuery12345&hash="+first.Hash+"&mid="+kg_mid;
+                url="https://wwwapi.kugou.com/yy/index.php?r=play/getdata&callback=jQuery12345&hash="+first.Hash+"&mid="+kg_mid+"&album_id="+app.album_id+"&platid=4";
                 script.src = url;
                 console.log(url);
                 document.body.appendChild(script);
@@ -1177,19 +1188,34 @@ function id_find(word){
                 this.bodanList = arr;
              },
              ended:function(){
+                var audio = document.getElementById("audio").loop = false;
+                 var kg_mid = JSON.parse(localStorage.getItem("kg_mid"));
                  var arr =JSON.parse(localStorage.getItem("arr"));
                  var number = JSON.parse(localStorage.getItem("number"));
                  console.log(number);
+                 console.log(arr);
                  document.getElementsByClassName("bodan4")[number].classList.remove("playing");
                  if(arr.length!=0){
                     var number = JSON.parse(localStorage.getItem("number"));
                     document.getElementsByClassName("bodan4")[number].classList.remove("playing");
-                     if(number < arr.length-1){
+                    if(arr.length == 1){
+                        console.log("456789");
+                        var audio = document.getElementById("audio").loop = true;
+                        console.log(document.getElementById("audio").loop);
+                     }
+                     else if(number < arr.length-1){
                          number = number+1;
                      }
-                     else{
+                     else if(number == arr.length-1) {
                          number = 0;
+                         console.log("000000000");
                      }
+                     else if(arr.length == 1){
+                        console.log("456789");
+                        var audio = document.getElementById("audio").loop = true;
+                        console.log(document.getElementById("audio").loop);
+                     }
+                     if(arr.length!=0){
                  document.getElementsByClassName("bodan4")[number].classList.add("playing");
                  console.log(arr.length);
                  localStorage.setItem("number",JSON.stringify(number));
@@ -1197,7 +1223,8 @@ function id_find(word){
                  console.log(number);
                  console.log(first)
                  var script = document.createElement("script");
-                 url="https://wwwapi.kugou.com/yy/index.php?r=play/getdata&callback=jQuery12345&hash="+first.Hash+"&mid="+kg_mid;
+                 app.album_id = first.album_id;
+                 url="https://wwwapi.kugou.com/yy/index.php?r=play/getdata&callback=jQuery12345&hash="+first.Hash+"&mid="+kg_mid+"&album_id="+app.album_id+"&platid=4";
                  script.src = url;
                  document.body.appendChild(script);
                  var script_2 =document.createElement("script");
@@ -1207,14 +1234,17 @@ function id_find(word){
                  this.musicList=[];
                  this.musicList.push({"FileName":first.name,"FileHash":first.Hash});
                  this.bodanList = arr;
+                     }
+                 
 
                  
 
                  }
                  if(arr.length==0){
+                     console.log("你好");
                     var audio = document.getElementById("audio").loop = true;
                     console.log(document.getElementById("audio").loop);
-                    console.log("123")
+                    console.log("123456789");
                  }
 
              },
@@ -1262,3 +1292,4 @@ localStorage.setItem("num",JSON.stringify(0));
 
 </script>
 </html>
+//若实在运行不了，请联系up主维护https://space.bilibili.com/473909239
